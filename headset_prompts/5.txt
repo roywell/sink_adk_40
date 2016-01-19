@@ -1,0 +1,1 @@
+file="C:\ADK4.0\apps\sink\headset_prompts\wav\05_pairing_failed.wav",compression=ADPCM,rate=8000,channels=Mono

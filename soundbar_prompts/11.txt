@@ -1,0 +1,1 @@
+file="C:\ADK4.0\apps\sink\soundbar_prompts\wav\01_usb.wav",compression=ADPCM,rate=8000,channels=Mono

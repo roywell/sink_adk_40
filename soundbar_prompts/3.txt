@@ -1,0 +1,1 @@
+file="C:\ADK4.0\apps\sink\soundbar_prompts\wav\03_spdif.wav",compression=ADPCM,rate=8000,channels=Mono

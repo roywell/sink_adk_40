@@ -23,7 +23,7 @@ DESCRIPTION
  /*end of DO_NOT_DOCUMENT*/
 
     /*The global debug enable*/ 
-    #define DEBUG_PRINT_ENABLEDx
+    #define DEBUG_PRINT_ENABLED
 
     #ifdef DEBUG_PRINT_ENABLED
         #define DEBUG(x) {printf x;}
@@ -101,6 +101,8 @@ DESCRIPTION
         
         #define DEBUG_AT_COMMANDSx
         
+/************************************************/
+
         #define DEBUG_GATTx
         
         #define DEBUG_GATT_MANAGERx
@@ -112,6 +114,14 @@ DESCRIPTION
         /* Debug HID Remote Control */
         #define DEBUG_GATT_HID_RCx
         
+
+        #define DEBUG_BLE_GAPx
+        #define DEBUG_GATT_ANCS_CLIENTx
+        #define DEBUG_GATT_CLIENTx
+
+        #define MYDEBUG(x) {printf x;}
+/************************************************/
+
         #define DEBUG_DUTx
         
             /* Device Id */
@@ -133,8 +143,12 @@ DESCRIPTION
             /* Battery Reporting debug */
         #define DEBUG_BAT_REPx
 
+
+
     #else
         #define DEBUG(x) 
+        #define MYDEBUG(x)
+
     #endif /*DEBUG_PRINT_ENABLED*/
 
         /* If you want to carry out cVc license key checking in Production test

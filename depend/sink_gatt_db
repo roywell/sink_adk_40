@@ -1,0 +1,3 @@
+sink_gatt_db.o: sink_gatt_db.c C:/ADK4.0.0/tools/include/firmware/panic.h \
+  C:/ADK4.0.0/tools/include/standard/csrtypes.h \
+  C:/ADK4.0.0/tools/include/standard/string.h sink_gatt_db.h

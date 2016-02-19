@@ -1,0 +1,84 @@
+sink_config.o: sink_config.c sink_config.h sink_configmanager.h \
+  C:/ADK4.0.0/tools/include/standard/stdlib.h \
+  C:/ADK4.0.0/tools/include/standard/csrtypes.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/pblock.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/audio.h \
+  C:/ADK4.0.0/tools/include/firmware/message.h \
+  C:/ADK4.0.0/tools/include/firmware/sink_.h \
+  C:/ADK4.0.0/tools/include/firmware/message_.h \
+  C:/ADK4.0.0/tools/include/firmware/app/message/system_message.h \
+  C:/ADK4.0.0/tools/include/firmware/app/adc/adc_if.h \
+  C:/ADK4.0.0/tools/include/firmware/app/usb/usb_if.h \
+  C:/ADK4.0.0/tools/include/firmware/app/vm/vm_if.h \
+  C:/ADK4.0.0/tools/include/firmware/app/capsense/capsense_if.h \
+  C:/ADK4.0.0/tools/include/firmware/app/partition/partition_if.h \
+  C:/ADK4.0.0/tools/include/firmware/app/infrared/infrared_if.h \
+  C:/ADK4.0.0/tools/include/firmware/source_.h \
+  C:/ADK4.0.0/tools/include/firmware/app/status/status_if.h \
+  C:/ADK4.0.0/tools/include/firmware/stream.h \
+  C:/ADK4.0.0/tools/include/firmware/bdaddr_.h \
+  C:/ADK4.0.0/tools/include/firmware/transform_.h \
+  C:/ADK4.0.0/tools/include/firmware/app/file/file_if.h \
+  C:/ADK4.0.0/tools/include/firmware/app/uart/uart_if.h \
+  C:/ADK4.0.0/tools/include/firmware/app/stream/stream_if.h \
+  C:/ADK4.0.0/tools/include/firmware/app/bluestack/types.h \
+  C:/ADK4.0.0/tools/include/standard/limits.h \
+  C:/ADK4.0.0/tools/include/firmware/app/audio/audio_if.h \
+  C:/ADK4.0.0/tools/include/firmware/app/ringtone/ringtone_if.h \
+  C:/ADK4.0.0/tools/include/firmware/app/ringtone/ringtone_notes.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/audio_plugin_if.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/library.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/vmtypes.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/power.h \
+  C:/ADK4.0.0/tools/include/firmware/adc.h \
+  C:/ADK4.0.0/tools/include/firmware/charger.h \
+  C:/ADK4.0.0/tools/include/firmware/app/charger/charger_if.h \
+  C:/ADK4.0.0/tools/include/firmware/panic.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/hfp.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/connection.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/connection_no_ble.h \
+  sink_volume.h sink_powermanager.h sink_debug.h sink_states.h \
+  sink_buttonmanager.h sink_events.h \
+  C:/ADK4.0.0/tools/include/standard/stdio.h \
+  C:/ADK4.0.0/tools/lib/gcc-lib/xap-local-xap-assisted/3.3.3/include/stdarg.h \
+  sink_private.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/usb_device_class.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/csr_cvc_common_plugin.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/codec.h \
+  C:/ADK4.0.0/tools/include/firmware/source.h \
+  C:/ADK4.0.0/tools/include/firmware/sink.h \
+  C:/ADK4.0.0/tools/include/firmware/codec_.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/csr_i2s_audio_plugin.h \
+  sink_leddata.h sink_usb.h sink_inquiry.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/bdaddr.h \
+  C:/ADK4.0.0/tools/include/firmware/app/bluestack/bluetooth.h \
+  C:/ADK4.0.0/tools/include/standard/string.h sink_wired.h sink_a2dp.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/csr_a2dp_decoder_common_plugin.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/a2dp.h \
+  sink_peer.h sink_audio_routing.h sink_partymode.h sink_fm.h \
+  sink_devicemanager.h sink_gatt_client.h sink_ble_gap.h \
+  sink_gatt_hid_remote_control.h sink_input_manager.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_client.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_battery_client.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_apple_notification_client.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_imm_alert_client.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_hid_client.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_manager.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_device_info_client.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_scan_params_client.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_gap_server.h \
+  sink_upgrade.h sink_ble.h sink_gatt_device.h sink_gatt_server.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_server.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_battery_server.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_transmit_power_server.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_link_loss_server.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/gatt_imm_alert_server.h \
+  sink_avrcp.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/avrcp.h \
+  sink_anc.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/fm_rx_plugin.h \
+  C:/ADK4.0.0/tools/include/profiles/BlueLab-7.0.1-Release/fm_plugin_if.h \
+  sink_leds.h C:/ADK4.0.0/tools/include/firmware/ps.h \
+  C:/ADK4.0.0/tools/include/firmware/app/ps/ps_if.h \
+  C:/ADK4.0.0/tools/include/firmware/file.h

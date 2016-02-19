@@ -1,0 +1,2 @@
+---- ++++++gattManagerClientWriteCharacteristicValue... Matches (1 in 1 files) ----
+Gatt_manager_client.c (c:\adk4.0.0\src\lib\gatt_manager):	/*printf("++++++gattManagerClientWriteCharacteristicValueConfirm=%x\r\n", cfm->status );*/

@@ -389,6 +389,7 @@ void sinkBleInitialiseDevice(void)
 /******************************************************************************/
 void sinkBleMsgHandler(Task task, MessageId id, Message message)
 {
+
     if ( (id >= CL_MESSAGE_BASE) && (id <= CL_MESSAGE_TOP) )
     {
         sinkBleHandleCLMessage(task, id,  message); 
@@ -612,6 +613,9 @@ void sinkBleRemoteConnectionSuccessEvent(uint16 cid)
         event.args = &args;
     }
     sinkBleGapEvent(event);
+
+	/*MessageSend(&theSink.task, EventUsrBleStartBonding, 0 );*/
+	
 }
 
 

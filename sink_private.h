@@ -610,6 +610,8 @@ typedef struct
 #endif
     
     SINK_ANC_DATA(anc)
+
+	uint8 *ancs_data;
     
 }runtime_block1_t; 
 

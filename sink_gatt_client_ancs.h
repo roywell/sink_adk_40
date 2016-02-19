@@ -34,7 +34,14 @@ DESCRIPTION
 #else
  #define CHECK_ANCS_SERVICE_UUID(uuid) (FALSE)
 #endif
-        
+
+typedef struct PACK_STRUCT _tagAncsData{
+	uint8 pktLen;
+	uint32 notification_uid;	
+	uint8 attrID;
+	uint8 value_size[2];
+	uint8 value[1];
+}ANCS_DATA, *PANCS_DATA;
 /****************************************************************************
 NAME    
     sinkGattAncsClientSetupAdvertisingFilter

@@ -108,6 +108,11 @@ static bool handleGattManagerRemoteClientConnectCfm(GATT_MANAGER_REMOTE_CLIENT_C
                 /* Record this connection which stores device specific data */
                 gattClientAdd(cfm->cid, &cfm->taddr, ble_gap_role_peripheral);
 
+
+
+
+
+
                 return TRUE;
             }
         }
@@ -252,8 +257,12 @@ static void handleGattManagerCancelRemoteClientConnectCfm(GATT_MANAGER_CANCEL_RE
 void sinkGattManagerStartAdvertising(void)
 {
     GATT_MANAGER_INFO(("GattMgr: Start advertising\n"));
-    
+
+
+	
     GattManagerWaitForRemoteClient(sinkGetBleTask(), NULL, gatt_connection_ble_slave_undirected);
+
+	/*MessageSendLater( &theSink.task, EventUsrBleStartBonding, 0, D_SEC(1) );*//*roywell 20160126*/
 }
 
 
@@ -271,6 +280,8 @@ void sinkGattManagerStopAdvertising(void)
 /******************************************************************************/
 void sinkGattManagerMsgHandler( Task task, MessageId id, Message message )
 {
+	/*MYDEBUG(("sinkGattManagerMsgHandler id=%x\r\n", id));*/
+	
     switch(id)
     {
         case GATT_MANAGER_REGISTER_WITH_GATT_CFM:

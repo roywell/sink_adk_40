@@ -1205,7 +1205,10 @@ void configManagerInitMemory( void )
     theSink.rundata = mallocPanic( sizeof(runtime_block1_t) );
     memset(theSink.rundata, 0, sizeof (runtime_block1_t));
     CONF_DEBUG(("INIT: Malloc size runtime1: [%d]\n",sizeof(runtime_block1_t)));
-   
+
+   /*20160215*/
+   theSink.rundata->ancs_data = mallocPanic( 64 );
+   memset( theSink.rundata->ancs_data, 0, 64 );
 
 }
 

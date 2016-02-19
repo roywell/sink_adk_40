@@ -172,7 +172,8 @@
  <file path="headset.mak" />
  <properties currentconfiguration="Headset-Gaming" >
   <configuration name="Headset-Gaming" >
-   <property key="ble_power_off_behaviour" >1</property>
+   <property key="battery_operation" >0</property>
+   <property key="ble_power_off_behaviour" >0</property>
    <property key="ble_support" >1</property>
    <property key="board" >0</property>
    <property key="buildMatch" >(file):(line):</property>
@@ -185,24 +186,25 @@
    <property key="enable_ancs_client" >1</property>
    <property key="enable_avrcp" >1</property>
    <property key="enable_ble" >1</property>
-   <property key="enable_findme_client" >1</property>
+   <property key="enable_capsense" >0</property>
+   <property key="enable_findme_client" >0</property>
    <property key="enable_fm" >0</property>
    <property key="enable_fm_rds" >0</property>
-   <property key="enable_gaia" >1</property>
+   <property key="enable_gaia" >0</property>
    <property key="enable_gatt" >1</property>
    <property key="enable_gatt_battery_server" >1</property>
-   <property key="enable_gatt_findme_server" >1</property>
-   <property key="enable_gatt_gaia_server" >1</property>
+   <property key="enable_gatt_findme_server" >0</property>
+   <property key="enable_gatt_gaia_server" >0</property>
    <property key="enable_gatt_peer_battery_server" >0</property>
-   <property key="enable_gatt_proximity_server" >1</property>
+   <property key="enable_gatt_proximity_server" >0</property>
    <property key="enable_gatt_remote_battery_server" >0</property>
    <property key="enable_hid_client" >0</property>
    <property key="enable_ir_remote" >0</property>
-   <property key="enable_pbap" >1</property>
+   <property key="enable_pbap" >0</property>
    <property key="enable_peer_battery_level" >0</property>
    <property key="enable_peer_device" >0</property>
    <property key="enable_speech_regcognition" >0</property>
-   <property key="enable_upgrade" >1</property>
+   <property key="enable_upgrade" >0</property>
    <property key="enable_usb" >0</property>
    <property key="enable_usb_audio" >0</property>
    <property key="enable_wired" >0</property>
@@ -212,9 +214,11 @@
    <property key="flashsize" >0</property>
    <property key="generate_map" >1</property>
    <property key="hardware" >0</property>
-   <property key="include_a2dp_extra_codecs" >1</property>
+   <property key="include_a2dp_extra_codecs" >0</property>
    <property key="include_aptx_acl_sprint" >0</property>
-   <property key="include_faststream" >1</property>
+   <property key="include_cvc" >0</property>
+   <property key="include_dsp" >0</property>
+   <property key="include_faststream" >0</property>
    <property key="libs" >display_plugin_cns10010_scroll, display_example_plugin, display, avrcp ,power ,connection,bdaddr ,hfp_min_cfm ,region ,service ,codec ,audio,csr_cvc_common_plugin_all ,csr_voice_prompts_plugin ,csr_a2dp_decoder_common_plugin_stereo_bidir ,a2dp ,csr_common_example_plugin ,obex ,sdp_parse ,md5 ,usb_device_class ,spp_common ,spps ,sppc ,pblock ,audio_plugin_common ,csr_dut_audio_plugin ,pio_common, pbapc, mapc, fm_rx_plugin, fm_rx_api,  swat, csr_i2s_audio_plugin, gaia, gatt, gatt_imm_alert_client, gatt_apple_notification_client,gatt_battery_client, gatt_device_info_client, gatt_hid_client, byte_utils, upgrade, gatt_manager, gatt_battery_server, gatt_server, gatt_gap_server, gatt_transmit_power_server, gatt_imm_alert_server, gatt_link_loss_server, csr_multi_channel_plugin, gatt_client, gatt_scan_params_client</property>
    <property key="messages" >1</property>
    <property key="output" ></property>
@@ -223,6 +227,7 @@
    <property key="primitives" >1</property>
    <property key="stacksize" >0</property>
    <property key="storage_type" >0</property>
+   <property key="three_way_calling" >0</property>
    <property key="timestamps" >1</property>
   </configuration>
  </properties>

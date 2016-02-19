@@ -71,7 +71,12 @@ const char * const gap_events[ble_gap_event_last] = {
 };
 #else
 #define BLE_GAP_INFO(x)
+
+
 #define BLE_GAP_ERROR(x)
+
+#define BLE_INFO(x)
+
 #endif /* DEBUG_BLE_GAP */
       
 
@@ -110,7 +115,9 @@ RETURNS
 static void sinkBleSetGapState(ble_gap_state_t state)
 {
     GAP.state = state;
-    BLE_GAP_INFO(("GAP new state=[%s]\n", gap_states[state]));
+/*    BLE_GAP_INFO(("GAP new state=[%s]\n", gap_states[state]));*/
+    BLE_GAP_INFO(("GAP new state=[%d]\n", state));
+	/*MYDEBUG(("set state=%d\r\n", state));*/
 }
 
 
@@ -641,7 +648,8 @@ static void gapStartAdvertising(void)
     BLE_GAP_INFO(("GAP advertsising\n"));
     if (sinkBleGetGapState() != ble_gap_state_bondable_advertising)
     {
-        sinkBleSetGapState(ble_gap_state_advertising_connected);
+        /*sinkBleSetGapState(ble_gap_state_advertising_connected);*/
+		sinkBleSetGapState(ble_gap_state_bondable_advertising);
         
         if (gapIsFastAdvSpeed())
             gapStartFastAdvTimer();
@@ -1530,6 +1538,9 @@ static bool gapStateOffHandleEvent(ble_gap_event_t event)
     /* Assume we handle the event below until proved otherwise */
     bool event_handled = TRUE;
 
+
+	/*BLE_INFO(("gapStateOffHandleEvent event.id=%d\r\n", event.id));*/
+
     switch (event.id)
     {
         case ble_gap_event_power_on:
@@ -1613,6 +1624,8 @@ static bool gapStateAdvConnHandleEvent(ble_gap_event_t event)
     /* Assume we handle the event below until proved otherwise */
     bool event_handled = TRUE;
 
+	/*BLE_INFO(("gapStateAdvConnHandleEvent event.id=%d\r\n", event.id));*/
+
     switch (event.id)
     {
         case ble_gap_event_bondable:
@@ -1672,7 +1685,12 @@ static bool gapStateAdvConnHandleEvent(ble_gap_event_t event)
                 if not bonded do not allow pairing as soundbar is not in bondable
                 state.
             */
-            (void)gapStartPeripheralEncryption(TRUE);
+
+			(void)gapStartPeripheralEncryption(TRUE);/*roywell 20160120*/
+/*			(void)gapStartPeripheralEncryption(FALSE);*/
+
+			/*MessageSend(&theSink.task, EventUsrBleStartBonding, 0 );*/
+			
         }
         break;
         
@@ -2010,6 +2028,9 @@ static bool gapStateIdlePeripheralHandleEvent(ble_gap_event_t event)
     /* Assume we handle the event below until proved otherwise */
     bool event_handled = TRUE;
 
+	/*BLE_INFO(("gapStateIdlePeripheralHandleEvent event.id=%d\r\n", event.id));*/
+
+	MYDEBUG(("gapStateIdlePeripheralHandleEvent event.id=%d\r\n", event.id));
     switch (event.id)
     {
         case ble_gap_event_bondable:
@@ -2105,6 +2126,8 @@ static bool gapStateBondableScanningHandleEvent(ble_gap_event_t event)
 {
     /* Assume we handle the event below until proved otherwise */
     bool event_handled = TRUE;
+
+	/*BLE_INFO(("gapStateBondableScanningHandleEvent event.id=%d\r\n", event.id));*/
 
     switch (event.id)
     {
@@ -2211,6 +2234,8 @@ static bool gapStateBondableAdvertisingHandleEvent(ble_gap_event_t event)
 {
     /* Assume we handle the event below until proved otherwise */
     bool event_handled = TRUE;
+
+	/*BLE_INFO(("gapStateBondableAdvertisingHandleEvent event.id=%d\r\n", event.id));*/
 
     switch (event.id)
     {
@@ -2352,6 +2377,10 @@ static bool gapStateBondableConnectedHandleEvent(ble_gap_event_t event)
     /* Assume we handle the event below until proved otherwise */
     bool event_handled = TRUE;
 
+	/*BLE_INFO(("gapStateBondableConnectedHandleEvent event.id=%d\r\n", event.id));*/
+
+	MYDEBUG(("gapStateBondableConnectedHandleEvent id = %d\r\n", event.id));
+	
     switch (event.id)
     {
         case ble_gap_event_bondable_pairing_timeout:
@@ -2384,7 +2413,11 @@ static bool gapStateBondableConnectedHandleEvent(ble_gap_event_t event)
         
         case ble_gap_event_pairing_complete:
         {
-            sinkBleSetGapState(ble_gap_state_advertising_connected);
+            /*sinkBleSetGapState(ble_gap_state_advertising_connected);*//*20160128*/
+
+			
+			/*gattDiscoverPrimaryServices( &theSink.rundata->ble.gatt.client.connection[0]);*/ /*20160128*/
+			
         }
         break;
 
@@ -2481,6 +2514,8 @@ static bool gapStateConnectingHandleEvent(ble_gap_event_t event)
 {
     /* Assume we handle the event below until proved otherwise */
     bool event_handled = TRUE;
+
+	/*BLE_INFO(("gapStateConnectingHandleEvent event.id=%d\r\n", event.id));*/
 
     switch (event.id)
     {
@@ -2604,6 +2639,10 @@ static bool gapStateBondableConnectingHandleEvent(ble_gap_event_t event)
     /* Assume we handle the event below until proved otherwise */
     bool event_handled = TRUE;
 
+	/*BLE_INFO(("gapStateBondableConnectingHandleEvent event.id=%d\r\n", event.id));*/
+
+MYDEBUG(("gapStateBondableConnectingHandleEvent event.id=%d\r\n", event.id));
+	
     switch (event.id)
     {
         case ble_gap_event_central_conn_complete:
@@ -2707,6 +2746,8 @@ static bool gapStateBondableConnectingHandleEvent(ble_gap_event_t event)
 /******************************************************************************/
 void sinkBleGapInitialise(ble_gap_role_t role)
 {
+	/*BLE_INFO(("sinkBleGapInitialise role=%d\r\n", role));*/
+	
     /* Set initial GAP state */
     sinkBleSetGapState(ble_gap_state_off);
     
@@ -2728,8 +2769,9 @@ void sinkBleGapEvent(ble_gap_event_t event)
     bool event_handled = FALSE;
     ble_gap_state_t state = sinkBleGetGapState();
 
-    BLE_GAP_INFO(("GAP new event=[%s] state=[%s]\n", gap_events[event.id], gap_states[state]));
-    
+    /*BLE_GAP_INFO(("GAP new event=[%s] state=[%s]\n", gap_events[event.id], gap_states[state]));*/
+    /*MYDEBUG(("GAP event=[%d] state=[%d]\n", event.id, state));*/
+	
     switch (state)
     {
         case ble_gap_state_off:
@@ -2914,7 +2956,9 @@ bool sinkBleGapIsBondable(void)
 {
     ble_gap_state_t state = sinkBleGetGapState();
     bool bondable = FALSE;
-    
+
+
+	
     switch (state)
     {
         case ble_gap_state_bondable_advertising:
@@ -2927,8 +2971,10 @@ bool sinkBleGapIsBondable(void)
             bondable = FALSE;
             break;
     }
-    
-    return bondable;
+
+	/*BLE_INFO(("sinkBleGapIsBondable=[%d]\n", bondable));*/
+
+	return bondable;
 }
 
 
@@ -2937,7 +2983,8 @@ bool sinkBleGapIsBondable(void)
 void sinkBleSetGapDefaultRole(ble_gap_role_t role)
 {
     GAP.default_role = role;
-    
+
+	/*BLE_INFO(("GAP Default Role=[%u]\n", role));*/
     BLE_GAP_INFO(("GAP Default Role=[%u]\n", role));
 }
 

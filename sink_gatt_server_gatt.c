@@ -115,13 +115,13 @@ void sinkGattServerMsgHandler(Task task, MessageId id, Message message)
     {
         case GATT_SERVER_READ_CLIENT_CONFIG_IND:
         {
-            DEBUG(("GATT_SERVER_READ_CLIENT_CONFIG_IND\n"));
+            /*MYDEBUG(("GATT_SERVER_READ_CLIENT_CONFIG_IND\n"));*/
             handle_read_client_config_indication(message);
         }
         break;
         case GATT_SERVER_WRITE_CLIENT_CONFIG_IND:
         {
-            DEBUG(("GATT_SERVER_WRITE_CLIENT_CONFIG_IND\n"));
+           /* MYDEBUG(("GATT_SERVER_WRITE_CLIENT_CONFIG_IND\n"));*/
             handle_write_client_config_indication(message);
         }
         break;

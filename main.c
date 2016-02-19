@@ -200,6 +200,7 @@ static void handleCLMessage ( Task task, MessageId id, Message message )
             {
                 Panic();
             }
+			
         break;
         case CL_DM_WRITE_INQUIRY_MODE_CFM:
             /* Read the local name to put in our EIR data */

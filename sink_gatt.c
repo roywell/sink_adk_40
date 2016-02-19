@@ -160,6 +160,8 @@ void sinkGattMsgHandler(Task task, MessageId id, Message message)
         case GATT_CONNECT_CFM:
         {
             handleGattConnectCfm((GATT_CONNECT_CFM_T*)message);
+
+			
         }
         break;
         case GATT_EXCHANGE_MTU_IND:

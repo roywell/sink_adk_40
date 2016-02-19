@@ -152,6 +152,7 @@ static void initialiseGattClientService(gatt_client_connection_t *connection)
     {
         for (service_count = 0 ; service_count < data->number_discovered_services ; service_count++)
         {
+#if 0			
             if ((discover) && (discover->service == gatt_client_gatt))
             {
                 gatt_service_found = sinkGattClientServiceAdd(connection->cid, discover->start_handle, discover->end_handle);
@@ -162,6 +163,17 @@ static void initialiseGattClientService(gatt_client_connection_t *connection)
                                    discover->end_handle));
                 break;
             }
+#else            
+            /*20160201*/
+            if ((discover) && (discover->service == gatt_client_ancs))
+            {
+                                    
+                sinkGattAncsClientAddService(connection->cid, discover->start_handle, discover->end_handle);
+
+               /* gatt_service_found = sinkGattClientServiceAdd(connection->cid, discover->start_handle, discover->end_handle);*/
+				return;
+            }
+#endif            
             /* Increment to next discovery data */
             discover +=1;
         }
@@ -286,6 +298,9 @@ void gattClientInitialiseDiscoveredServices(gatt_client_connection_t *connection
             GATT_CLIENT_DEBUG(("GATT Discovered Service: cid[0x%x] index[%u]\n", connection->cid, data->current_discovered_service));
             
             GATT_CLIENT_DEBUG(("    service[%u] start[0x%x] end[0x%x]\n", discover->service, discover->start_handle, discover->end_handle));
+
+            /*MYDEBUG(("    service[%u] start[0x%x] end[0x%x]\n", discover->service, discover->start_handle, discover->end_handle));*/
+            
             switch (discover->service)
             {
                 case gatt_client_battery:
